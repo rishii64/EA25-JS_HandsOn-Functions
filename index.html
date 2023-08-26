@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Coding Assignment [Functions]</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>JS HandsOn-11 --[Functions]- Day 1</h1>
+    <h2>Guess the correct output and write down the reason behind the output in details.</h2>
+    <div class="qstn">
+       <span>Q1.</span> Create one function with zero parameter having a console statement.
+    </div>
+    <div class="ans">
+        <div>
+            <pre>
+                <b>Answer:</b>
+                function fs(){
+                    console.log("JS Coding Assignment");
+                }
+                fs()
+            </pre>
+        </div>
+       <div>
+            <pre>
+                <b>Output:</b>
+                JS Coding Assignment
+            </pre>
+       </div> 
+        
+    </div>
+
+     <div class="qstn">
+        <span>Q2.</span> Create one function which takes two values as a parameter and print the sum of them as "Sum of 3, 4 is 7"
+     </div>
+     <div class="ans">
+         <div>
+             <pre>
+                <b>Answer:</b>
+                function fs(a,b){
+                    let sum = a +b;
+                    console.log('Sum = ',sum);
+                }
+                fs(3,4)
+             </pre>
+         </div>
+        <div>
+             <pre>
+                 <b>Output:</b>
+                 Sum =  7
+             </pre>
+        </div> 
+         
+     </div>
+
+     <div class="qstn">
+        <span>Q3.</span> Create one arrow function.
+     </div>
+     <div class="ans">
+         <div>
+             <pre>
+                <b>Answer:</b>
+                let value = (a,b)=>{ 
+                    console.log(`Value of ${a} x ${3} = ${a*b}`) 
+                };
+                value(2,3)
+             </pre>
+         </div>
+        <div>
+             <pre>
+                <b>Output:</b>
+                Value of 2 x 3 = 6
+             </pre>
+        </div> 
+         
+     </div>
+
+     <div class="qstn">
+        <span>Q4.</span>Print output:
+     </div>
+     <div class="ans">
+         <div>
+             <pre>
+                var x=21
+                var girl = function(){
+                    console.log(x)
+                    var x=20
+                }
+                girl();
+             </pre>
+         </div>
+        <div>
+             <pre>
+                 <b>Output:</b>
+                 undefined
+
+                 <b>Reason:</b>
+                 This is due to variable hosting, i.e. even though we have declared x inside the girl () function,
+                 the declaration itself is hoisted at the top of the function. Declared with var keyword, on trying
+                 to access the variable before initialisation gives undefined as output.
+                 Secondly, inside the girl() function the variable x has a local scope which shadows the outer x 
+                 within the function scope.
+             </pre>
+        </div> 
+         
+     </div>
+
+     <div class="qstn">
+        <span>Q5.</span>Print output:
+     </div>
+     <div class="ans">
+         <div>
+             <pre> 
+                var x = 21;
+                girl ();
+                console.log(x)
+                function girl() {
+                    console.log(x);
+                    var x = 20;
+                };
+             </pre>
+         </div>
+        <div>
+             <pre>
+                 <b>Output:</b>
+                 undefined
+                 21
+
+                 <b>Reason:</b>
+                 Like the previous question, js engine iterates the code line by line and the girl() function gets
+                 called first where hoising and shadowing runs simultanesously giving the output as "undefined".
+                 After that it prints 21.
+             </pre>
+        </div> 
+     </div>
+
+     <div class="qstn">
+        <span>Q6.</span>Print output
+     </div>
+     <div class="ans">
+         <div>
+             <pre>
+                var x = 21;
+                a();
+                b();
+                function a() {
+                x = 20;
+                console.log(x);
+                };
+                function b() {
+                    x = 40;
+                console.log(x);
+                };
+             </pre>
+         </div>
+        <div>
+             <pre>
+                <b>Output:</b>
+                20
+                40
+
+                <b>Reason</b>
+                Js code executes line by line. First the a() function is called, where finding for x the JS compiler 
+                goes to the previous line i.e. the global scope. Getting the value of x it consoles 
+                where it gets changed to 20. 
+                
+                In the second output, same scenario occurs. Only the difference is that the value of x 
+                changes to 40.
+             </pre>
+        </div> 
+         
+     </div>
+     <div class="qstn">
+        <span>Q7.</span> Write a function that accepts parameter n and returns factorial of n.
+     </div>
+     <div class="ans">
+         <div>
+             <pre>
+                <b>Answer:</b>
+                function fact(n){
+                    let fact=1
+                    for(let i=1;i<=n;i++)
+                        fact *=i
+                    return `Factorial of ${n} = ${fact}`;
+                }
+                console.log(fact(5))
+             </pre>
+         </div>
+        <div>
+             <pre>
+                <b>Output:</b>
+                Factorial of 5 = 120
+             </pre>
+        </div> 
+     </div>
+                                        <hr>
+     <h1>Day 2</h1>
+        <div class="qstn">
+            <span>Q1.</span>Guess the Output
+        </div>
+        <div class="ans">
+            <div>
+                <pre>
+                    function FindSum(a, b){
+                        return a + b;
+                    }
+                    function DisplayData(data, batch){
+                        console.log(`i am from ${data} and My batch is EA${batch}`)
+                    }
+                    DisplayData("PrepBytes", FindSum(10, 9));
+                </pre>
+            </div>
+            <div>
+                <pre>
+                <b>Output:</b>
+                i am from PrepBytes and My batch is EA19
+
+                <b>Reason:</b>
+                First, FindSum() is called returning 19 as output.
+                Next, DisplayData() is called returning "Prepbytes" as data and 19 as batch 
+                respectively.
+                Then in  DisplayData values are evaluated printing the resulting string. 
+                </pre>
+            </div> 
+        </div>
+
+        <div class="qstn">
+            <span>Q2.</span>Guess the Output
+        </div>
+        <div class="ans">
+            <div>
+                <pre>
+                    Abc();
+                    const Abc = function(){
+                        let value = 20;
+                        console.log(value);
+                    }
+                </pre>
+            </div>
+            <div>
+                <pre>
+                    <b>Output:</b>
+                    ReferenceError: Cannot access 'Abc' before initialization
+
+                    <b>Reason:</b>
+                    The function expression is not hoisted so it cannot be invoked before it's creation.
+                </pre>
+            </div> 
+        </div>
+
+        <div class="qstn">
+            <span>Q3.</span>Guess the Output
+        </div>
+        <div class="ans">
+            <div>
+                <pre>
+                    var a = 10;
+                    (function (){
+                        console.log(a);
+                        var a = 20;
+                    })();
+                </pre>
+            </div>
+            <div>
+                <pre>
+                    <b>Output:</b>
+                    undefined
+
+                    <b>Reason:</b>
+                    Variable hoisting in javascript. Accessing the variable declared with var keyword before it's initialisation. 
+                    Resulting output -> undefined.
+                </pre>
+            </div> 
+        </div>
+
+         <div class="qstn">
+            <span>Q4.</span>Guess the Output
+        </div>
+        <div class="ans">
+            <div>
+                <pre>
+                    const greet =  function(name){
+                        return function(m){
+                            console.log(`Hi!! ${name}, ${m}`);
+                        }
+                    }
+                    const greet_message = greet('EA19');
+                    greet_message("Welcome To PrepBytes")
+                </pre>
+            </div>
+            <div>
+                <pre>
+                    <b>Output:</b>
+                    Hi!! EA19, Welcome To PrepBytes
+
+                    <b>Reason:</b>
+                    First, we call the function greet with an argument "EA19" at line #9 and stores the returned 
+                    value in a variable called greet_message. After executing greet(), greet_message also becomes 
+                    a function because we return a function from greet().
+                    Secondly, we call the function  greet_message with an argument at line #10. After the execution 
+                    it prints -  "Hi!! EA19, Welcome to Prepbytes". 
+                    In the given program, the concept of closures comes into action.
+                </pre>
+            </div> 
+        </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
